@@ -1,5 +1,5 @@
 
-from math import *
+#from math import *
 
 num_list = []
 
@@ -19,7 +19,7 @@ for a in num_list:
                 print(a)
                 print(b)
                 print(x)
-                print( a*x*b)
+                print( a*x*b )
                 break
             if total == 2020:
                 break
@@ -27,3 +27,4 @@ for a in num_list:
             break
     if total == 2020:
         break
+    

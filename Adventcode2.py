@@ -1,4 +1,4 @@
-from math import *
+#from math import *
 
 
 results = 0
@@ -14,6 +14,7 @@ with open('passwords.txt', 'r') as fh:
 
         search_list = x[1][:-1]
         x[2].strip("\n")
+
         if x[2].count(search_list) >= minus and x[2].count(search_list) <=maximus :
             results +=1
 '''
@@ -22,14 +23,15 @@ with open('passwords.txt', 'r') as fh:
 with open('passwords.txt', 'r') as fh:
     for line in fh:
         x = line.split()
+
         temp = x[0].split("-")
-        minus=int(temp[0])
-        maximus=int(temp[1])
-        minus = minus-1
-        maximus = maximus-1
+        minus=int(temp[0])-1
+        maximus=int(temp[1])-1
+
 
         search_list = x[1][:-1]
         x[2].strip("\n")
+
         if bool(x[2][minus]==search_list) ^ bool(x[2][maximus]==search_list):
             results +=1
         #print(minus, maximus)
