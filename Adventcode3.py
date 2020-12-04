@@ -5,7 +5,7 @@ downwards = 1
 
 crash = 0
 
-with open('Trees.txt', 'r') as fh:
+with open('day3.txt', 'r') as fh:
     for line in fh:
         line = line[:-1]
         print(pos_x,pos_y, len(line), line)
