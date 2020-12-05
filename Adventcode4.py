@@ -25,10 +25,18 @@ class papier(object):
     pid = "Passport"
     cid = "Country"
 
+    def validate_eye(self):
+        if self.ecl in id_format_e:
+            return True
+        return False
+        
+            
+
     def validate_hair(self):
-        if len(self.hgt)==7:
-            if self.hgt[0]=="#":
-                return True
+        if len(self.hcl)==7:
+            if self.hcl[0]=="#":
+                if int(self.hcl[1:],16):
+                    return True
         return False
 
     def validate_height(self):
@@ -41,6 +49,12 @@ class papier(object):
                     #print(self.hgt[:-2])
                     return True
         return False
+    
+    def validate_pid(self):
+        if len(self.pid)==9 and self.pid.isdecimal():
+            return True
+        return False
+        
 
     def validate(self):
         if self.byr == "Birth" or not(  1920 <= self.byr <= 2002) :
@@ -55,13 +69,13 @@ class papier(object):
         if self.hgt == "Height" or not self.validate_height():
             #print("HGT")
             return False
-        if self.hcl == "Hair" :#or not self.validate_hair():
+        if self.hcl == "Hair" or not self.validate_hair():
             #print("Hair")
             return False
-        if self.ecl == "Eye" or ( all(c in id_format_e for c in self.ecl)):
+        if self.ecl == "Eye" or not self.validate_eye():
             #print("Eye")
             return False
-        if self.pid == "Passport" or (all(c in id_format_p for c in self.pid)):
+        if self.pid == "Passport" or not self.validate_pid():
             #print("Pays")
             return False
         if self.cid == "Country" or self.cid != "Country":
@@ -95,7 +109,7 @@ temps = []
 passports = []
 infos = []
 
-with open('passportstest.txt', 'r') as fh:
+with open('passports.txt', 'r') as fh:
     for line in fh:
         temps.append(line.strip())
 
@@ -137,6 +151,7 @@ for ids in passports:
 valid_passports=0
 for post in infos:
         if post.validate():
+            #post.validate_height()
             valid_passports +=1
 print(valid_passports)
 
