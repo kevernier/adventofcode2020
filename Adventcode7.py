@@ -1,10 +1,11 @@
-liste_couleurs =[]
+liste_couleurs = []
 liste_bags = []
 cont_shiny = 0
 
-class color:
-    
-    def __init__(self, str1,str2):
+
+class Color:
+
+    def __init__(self, str1, str2):
         """
         str1 always the adjective,
         str2 always the noun
@@ -21,11 +22,12 @@ def color_create(string):
     """
     temp_list = string.split()
 
-    new_color = color(temp_list[0].strip(),temp_list[1].strip())
+    new_color = Color(temp_list[0].strip(), temp_list[1].strip())
 
     #if new_color not in liste_couleurs:
         #liste_couleurs.append(new_color)
     return new_color
+
 
 def color_sep(string1):
     
@@ -42,8 +44,8 @@ def color_sep(string1):
 
         temp_elem = couleur.split()
 
-        for word in range(0,len(temp_elem)-1):
-        
+        for word in range(0, len(temp_elem) - 1):
+
             temp_elem[word].strip()
 
             if temp_elem[word].isdecimal():
@@ -59,7 +61,6 @@ def color_sep(string1):
         inforamtion_list.append( color_create(' '.join(temp_elem)) )
         #print( color_create(' '.join(temp_elem)).adj, ' ' ,color_create(' '.join(temp_elem)).couleur )
     return inforamtion_list
-        
 
 
 class bags(color):
@@ -73,7 +74,7 @@ class bags(color):
         separateur1 = string.find("bags")
 
         color_bag = string[0:separateur1].strip()
-        contain_bags = string[separateur1+12:]
+        contain_bags = string[separateur1 + 12:]
 
         self.my_bag = color_create(color_bag)
 
@@ -89,10 +90,10 @@ def compteur(color):
 
 with open('colours.txt','r') as fh:
     for line in fh:
-        liste_bags.append(bags(line))
+        liste_bags.append(Bags(line))
 
 for i in liste_bags:
-    #print("bag of ",i.my_bag.adj,' ', i.my_bag.couleur)
+    # print("bag of ",i.my_bag.adj,' ', i.my_bag.couleur)
     for j in i.can_bag:
         #print("containing: ", j)
         pass
