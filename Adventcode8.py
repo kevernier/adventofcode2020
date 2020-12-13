@@ -1,7 +1,7 @@
 k_liste = []
 acc = 0
 
-with open('day8.txt', 'r') as fh:
+with open('console.txt', 'r') as fh:
     for line in fh:
         k_liste.append(line)
 
