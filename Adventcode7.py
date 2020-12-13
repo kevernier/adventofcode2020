@@ -63,7 +63,7 @@ def color_sep(string1):
     return inforamtion_list
 
 
-class bags(color):
+class Bags(Color):
     #my_bag = "color"
     #can_bag c'est une liste de couleur
     
